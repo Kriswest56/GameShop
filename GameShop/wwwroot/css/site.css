@@ -35,3 +35,11 @@ textarea {
         display: none;
     }
 }
+
+.footerStyle {
+    background-color: #222;
+    border-bottom-color: #080808;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+}

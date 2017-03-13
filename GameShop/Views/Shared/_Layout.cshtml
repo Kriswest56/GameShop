@@ -31,14 +31,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a asp-area="" asp-controller="Games" asp-action="Index" class="navbar-brand">GameShop</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">GameShop</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Games" asp-action="Index">Manage Games</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                        <li><a asp-area="" asp-controller="Games" asp-action="Index">Manage Games</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,16 +50,14 @@
                     @RenderBody()
                     <hr />
                 </div>
-                <footer>
-                    <p>&copy; 2017 - GameShop</p>
-                </footer>
             </div>
             <div class="col-lg-1"></div>
         </div>
-
-        
-
     </div>
+
+    <footer style="background-color: #222; border-bottom-color: #080808; position: fixed; bottom:0; width: 100%">
+        <p style="color:#ffffff; margin-top:10px; text-align: center">&copy; 2017 - GameShop</p>
+    </footer>
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
