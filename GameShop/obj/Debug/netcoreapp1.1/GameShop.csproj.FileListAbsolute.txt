@@ -1,0 +1,9 @@
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\bin\Debug\netcoreapp1.1\GameShop.deps.json
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\bin\Debug\netcoreapp1.1\GameShop.runtimeconfig.json
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\bin\Debug\netcoreapp1.1\GameShop.runtimeconfig.dev.json
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\bin\Debug\netcoreapp1.1\GameShop.dll
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\bin\Debug\netcoreapp1.1\GameShop.pdb
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\obj\Debug\netcoreapp1.1\GameShop.AssemblyInfo.cs
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\obj\Debug\netcoreapp1.1\GameShop.dll
+c:\users\kris\documents\visual studio 2017\Projects\GameShop\GameShop\obj\Debug\netcoreapp1.1\GameShop.pdb
+C:\Users\Kris\documents\visual studio 2017\Projects\GameShop\GameShop\obj\Debug\netcoreapp1.1\GameShop.csprojResolveAssemblyReference.cache
