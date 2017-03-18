@@ -76,8 +76,15 @@ namespace GameShop.Controllers
         }
 
         // GET: Games/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+
+            IQueryable<string> consolesQuery = from m in _context.Console
+                                               orderby m.Name
+                                               select m.Name;
+
+            ViewBag.consoles = new SelectList(await consolesQuery.Distinct().ToListAsync());
+
             return View();
         }
 

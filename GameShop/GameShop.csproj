@@ -19,6 +19,7 @@
     <Content Include="wwwroot\images\MassEffectAndromedaWallpaper.png" />
     <Content Include="wwwroot\images\Overwatch.jpg" />
     <Content Include="wwwroot\images\PunchOut.jpg" />
+    <Content Include="wwwroot\images\wallpaper.jpg" />
     <Content Include="wwwroot\images\ZeldaBOTW.jpg" />
   </ItemGroup>
   <ItemGroup>

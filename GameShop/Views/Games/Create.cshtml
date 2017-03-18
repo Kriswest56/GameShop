@@ -4,11 +4,10 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create New Game</h2>
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4>Game</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
@@ -42,8 +41,8 @@
         <div class="form-group">
             <label asp-for="Console" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select class="form-control" asp-for="Console" asp-items="Model.consoles">
-                    <option value="">Console</option>
+                <select class="form-control" asp-for="Console" asp-items="ViewBag.consoles">
+                    <option value=""></option>
                 </select>
                 <span asp-validation-for="Console" class="text-danger"></span>
             </div>

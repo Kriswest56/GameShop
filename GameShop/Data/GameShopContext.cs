@@ -17,5 +17,7 @@ namespace GameShop.Models
         public DbSet<GameShop.Models.Game> Game { get; set; }
 
         public DbSet<GameShop.Models.Consoles> Console { get; set; }
+
+        public DbSet<GameShop.Models.UserReview> UserReview { get; set; }
     }
 }

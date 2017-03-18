@@ -15,14 +15,14 @@ namespace GameShop.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Web Application Architecture Project 3 Assignment";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Questions or Comments?";
 
             return View();
         }
