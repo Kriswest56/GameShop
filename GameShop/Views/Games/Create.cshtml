@@ -42,7 +42,9 @@
         <div class="form-group">
             <label asp-for="Console" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Console" class="form-control" />
+                <select class="form-control" asp-for="Console" asp-items="Model.consoles">
+                    <option value="">Console</option>
+                </select>
                 <span asp-validation-for="Console" class="text-danger"></span>
             </div>
         </div>

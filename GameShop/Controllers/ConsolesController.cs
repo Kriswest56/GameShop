@@ -9,55 +9,22 @@ using GameShop.Models;
 
 namespace GameShop.Controllers
 {
-    public class GamesController : Controller
+    public class ConsolesController : Controller
     {
         private readonly GameShopContext _context;
 
-        public GamesController(GameShopContext context)
+        public ConsolesController(GameShopContext context)
         {
             _context = context;    
         }
 
-        // GET: Games
-        public async Task<IActionResult> Index(string gameGenre, string searchString, string gameConsole)
+        // GET: Consoles
+        public async Task<IActionResult> Index()
         {
-
-            IQueryable<string> genreQuery = from m in _context.Game
-                                            orderby m.Genre
-                                            select m.Genre;
-
-            IQueryable<string> consolesQuery = from m in _context.Console
-                                            orderby m.Name
-                                            select m.Name;
-
-            var games = from m in _context.Game
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                games = games.Where(s => s.Title.Contains(searchString));
-            }
-
-            if (!String.IsNullOrEmpty(gameGenre))
-            {
-                games = games.Where(x => x.Genre == gameGenre);
-            }
-
-            if (!String.IsNullOrEmpty(gameConsole))
-            {
-                games = games.Where(x => x.Console == gameConsole);
-            }
-
-            var gameGenreVM = new GameGenreViewModel();
-            gameGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync());
-            gameGenreVM.consoles = new SelectList(await consolesQuery.Distinct().ToListAsync());
-            gameGenreVM.games = await games.ToListAsync();
-
-            return View(gameGenreVM);
-
+            return View(await _context.Console.ToListAsync());
         }
 
-        // GET: Games/Details/5
+        // GET: Consoles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -65,40 +32,39 @@ namespace GameShop.Controllers
                 return NotFound();
             }
 
-            var game = await _context.Game.SingleOrDefaultAsync(m => m.ID == id);
-
-            if (game == null)
+            var consoles = await _context.Console
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (consoles == null)
             {
                 return NotFound();
             }
 
-            return View(game);
+            return View(consoles);
         }
 
-        // GET: Games/Create
+        // GET: Consoles/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Games/Create
+        // POST: Consoles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Title,ReleaseDate,Genre,Price,Console")] Game game)
+        public async Task<IActionResult> Create([Bind("ID,Name,Price")] Consoles consoles)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(game);
+                _context.Add(consoles);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
-            return View(game);
+            return View(consoles);
         }
 
-        // GET: Games/Edit/5
+        // GET: Consoles/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -106,22 +72,22 @@ namespace GameShop.Controllers
                 return NotFound();
             }
 
-            var game = await _context.Game.SingleOrDefaultAsync(m => m.ID == id);
-            if (game == null)
+            var consoles = await _context.Console.SingleOrDefaultAsync(m => m.ID == id);
+            if (consoles == null)
             {
                 return NotFound();
             }
-            return View(game);
+            return View(consoles);
         }
 
-        // POST: Games/Edit/5
+        // POST: Consoles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Title,ReleaseDate,Genre,Price,Console")] Game game)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Price")] Consoles consoles)
         {
-            if (id != game.ID)
+            if (id != consoles.ID)
             {
                 return NotFound();
             }
@@ -130,12 +96,12 @@ namespace GameShop.Controllers
             {
                 try
                 {
-                    _context.Update(game);
+                    _context.Update(consoles);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GameExists(game.ID))
+                    if (!ConsolesExists(consoles.ID))
                     {
                         return NotFound();
                     }
@@ -146,10 +112,10 @@ namespace GameShop.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(game);
+            return View(consoles);
         }
 
-        // GET: Games/Delete/5
+        // GET: Consoles/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -157,30 +123,30 @@ namespace GameShop.Controllers
                 return NotFound();
             }
 
-            var game = await _context.Game
+            var consoles = await _context.Console
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (game == null)
+            if (consoles == null)
             {
                 return NotFound();
             }
 
-            return View(game);
+            return View(consoles);
         }
 
-        // POST: Games/Delete/5
+        // POST: Consoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var game = await _context.Game.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Game.Remove(game);
+            var consoles = await _context.Console.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Console.Remove(consoles);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool GameExists(int id)
+        private bool ConsolesExists(int id)
         {
-            return _context.Game.Any(e => e.ID == id);
+            return _context.Console.Any(e => e.ID == id);
         }
     }
 }

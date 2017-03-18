@@ -20,7 +20,12 @@
                     <option value="">Genre</option>
                 </select>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
+                <select class="form-control" asp-for="gameConsole" asp-items="Model.consoles">
+                    <option value="">Console</option>
+                </select>
+            </div>
+            <div class="col-lg-1">
             </div>
         </div>
     </form>

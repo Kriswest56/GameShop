@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using GameShop.Models;
 
 namespace GameShop.Models
 {
@@ -14,5 +15,7 @@ namespace GameShop.Models
         }
 
         public DbSet<GameShop.Models.Game> Game { get; set; }
+
+        public DbSet<GameShop.Models.Consoles> Console { get; set; }
     }
 }

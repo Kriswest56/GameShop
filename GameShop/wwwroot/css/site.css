@@ -43,3 +43,8 @@ textarea {
     bottom:0;
     width: 100%;
 }
+
+.tabStyle {
+    background-color: #222;
+    border-color: #ebebeb
+}

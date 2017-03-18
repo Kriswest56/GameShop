@@ -10,6 +10,8 @@ namespace GameShop.Models
     {
         public List<Game> games;
         public SelectList genres;
+        public SelectList consoles;
         public string gameGenre { get; set; }
+        public string gameConsole { get; set; }
     }
 }

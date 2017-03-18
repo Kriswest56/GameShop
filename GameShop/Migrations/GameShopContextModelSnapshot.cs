@@ -16,20 +16,40 @@ namespace GameShop.Migrations
                 .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("GameShop.Models.Consoles", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<decimal>("Price");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Console");
+                });
+
             modelBuilder.Entity("GameShop.Models.Game", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Console");
+                    b.Property<string>("Console")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
-                    b.Property<string>("Genre");
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<decimal>("Price");
 
                     b.Property<DateTime>("ReleaseDate");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.HasKey("ID");
 
